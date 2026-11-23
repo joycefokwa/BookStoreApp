@@ -1,0 +1,27 @@
+﻿@model BookStoreApp.Models.Author
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Author Details</h2>
+
+<div>
+    <h4>Author</h4>
+    <hr />
+    <p>
+
+        <strong>Author Id: </strong>
+        @Model. AuthorId
+    </p>
+    <p>
+
+        <strong>Author Name</strong>
+        @Model. Name
+    </p>
+</div>
+<p>     
+    @Html. ActionLink("Edit","Edit", new { id = Model. AuthorId } ) |
+    
+    @Html.ActionLink("Back to List", "Index")
+    </p>

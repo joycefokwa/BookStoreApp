@@ -1,0 +1,44 @@
+﻿
+@model BookStoreApp.Models.Book
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Book</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+
+<p>
+    <strong>Book ID:</strong>
+    @Model.BookId
+</p>
+
+<p>
+    <strong>Title:</strong>
+    @Model.Title
+</p>
+
+<p>
+    <strong>Price:</strong>
+    @Model.Price
+</p>
+
+<p>
+    <strong>Stock:</strong>
+    @Model.Stock
+</p>
+
+<p>
+    <strong>Author ID:</strong>
+    @Model.AuthorId
+</p>
+
+@using (Html.BeginForm("Delete", "Book", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.BookId)
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+
+    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-default" })
+}

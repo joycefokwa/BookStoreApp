@@ -1,0 +1,27 @@
+﻿@model BookStoreApp.Models.Author
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Author</h2>
+
+@using (Html.BeginForm("Edit", "Author", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    //Id we do not want to show it
+    @Html.HiddenFor(model => model.AuthorId)
+
+    <div class="from-group">
+        @Html. LabelFor(model => model. Name)
+        @Html. TextBoxFor(model => model. Name , new {@class = "form-control"})
+
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary">Edit</button>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
